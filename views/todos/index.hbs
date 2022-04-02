@@ -1,0 +1,23 @@
+<!-- views/todos/index.hbs -->
+<header class="d-flex justify-content-between align-items-center">
+  <h1>Todos</h1>
+  <a href="/todos/new" class="btn btn-primary">New To Do</a>
+</header>
+<ul class="list-group">
+  {{#each todos}}
+  <li class="list-group-item d-flex justify-content-between">
+    {{#if this.complete}}
+        <div class="text-muted"><s>{{this.title}}</s></div>
+  {{else}}
+        <div>{{this.title}}</div>
+{{/if}} 
+    <div class="links">
+      <a href="/todos/{{this.id}}/edit" class="btn btn-primary">Edit</a>
+      <a href="/todos/{{this.id}}" class="btn btn-info">View</a>
+      <form action="/todos/{{this.id}}?_method=DELETE" method="POST" class="d-inline">
+        <input type="submit" value="Delete" class="btn btn-danger" />
+      </form>
+    </div>
+  </li>
+  {{/each}}
+</ul>

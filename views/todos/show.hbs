@@ -1,0 +1,8 @@
+<!-- views/todos/show.hbs -->
+<h1>{{title}}</h1>
+{{#if complete}}
+<p>Status: complete</p>
+{{else}}
+<p>Status: incomplete</p>
+{{/if}}
+<a href="/todos" class="btn btn-secondary">&larr; Back</a>
